@@ -30,9 +30,9 @@ dependencies: {
  * P2P - Server component
  *
  * @link    GitHub: https://github.com/miroslavpejic85/
- * @link    Live demo: https://p2p..com or https://mirotalk.up.railway.app or https://mirotalk.herokuapp.com
+ * @link    
  * @license For open source use: AGPLv3
- * @license For commercial or closed source, contact us at info.mirotalk@gmail.com
+ * @license For commercial or closed source, contact us at
  * @author  Miroslav Pejic - miroslav.pejic.85@gmail.com
  * @version 1.0.1
  *
@@ -91,7 +91,7 @@ const swaggerDocument = yamlJS.load(path.join(__dirname + '/../api/swagger.yaml'
 const { v4: uuidV4 } = require('uuid');
 const apiBasePath = '/api/v1'; // api endpoint path
 const api_docs = host + apiBasePath + '/docs'; // api docs
-const api_key_secret = process.env.API_KEY_SECRET || 'mirotalk_default_secret';
+const api_key_secret = process.env.API_KEY_SECRET || 'anayameet_default_secret';
 
 // Ngrok config
 const ngrok = require('ngrok');
@@ -213,12 +213,7 @@ app.get(['/test'], (req, res) => {
     if (Object.keys(req.query).length > 0) {
         log.debug('Request Query', req.query);
     }
-    /*
-        http://localhost:3000/test?iceServers=[{"urls":"stun:stun.l.google.com:19302"},{"urls":"turn:openrelay.metered.ca:443","username":"openrelayproject","credential":"openrelayproject"}]
-        https://p2p.mirotalk.com//test?iceServers=[{"urls":"stun:stun.l.google.com:19302"},{"urls":"turn:openrelay.metered.ca:443","username":"openrelayproject","credential":"openrelayproject"}]
-        https://mirotalk.up.railway.app/test?iceServers=[{"urls":"stun:stun.l.google.com:19302"},{"urls":"turn:openrelay.metered.ca:443","username":"openrelayproject","credential":"openrelayproject"}]
-        https://mirotalk.herokuapp.com/test?iceServers=[{"urls":"stun:stun.l.google.com:19302"},{"urls":"turn:openrelay.metered.ca:443","username":"openrelayproject","credential":"openrelayproject"}]
-    */
+    
     res.sendFile(views.stunTurn);
 });
 
@@ -226,12 +221,7 @@ app.get(['/test'], (req, res) => {
 app.get('/join/', (req, res) => {
     if (Object.keys(req.query).length > 0) {
         log.debug('Request Query', req.query);
-        /* 
-            http://localhost:3000/join?room=test&name=mirotalk&audio=1&video=1&screen=1&notify=1
-            https://p2p.mirotalk.com/join?room=test&name=mirotalk&audio=1&video=1&screen=1&notify=1
-            https://mirotalk.up.railway.app/join?room=test&name=mirotalk&audio=1&video=1&screen=1&notify=1
-            https://mirotalk.herokuapp.com/join?room=test&name=mirotalk&audio=1&video=1&screen=1&notify=1
-        */
+       
         const { room, name, audio, video, screen, notify } = req.query;
         // all the params are mandatory for the direct room join
         if (room && name && audio && video && screen && notify) {
@@ -246,10 +236,7 @@ app.get('/join/*', (req, res) => {
     res.sendFile(views.client);
 });
 
-/**
-    MiroTalk API v1
-    For api docs we use: https://swagger.io/
-*/
+
 
 // api docs
 app.use(apiBasePath + '/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
@@ -279,10 +266,7 @@ app.post([apiBasePath + '/meeting'], (req, res) => {
     });
 });
 
-/*
-    MiroTalk Slack app v1
-    https://api.slack.com/authentication/verifying-requests-from-slack
-*/
+
 
 //Slack request meeting room endpoint
 app.post('/slack', (req, res) => {
@@ -323,7 +307,7 @@ function getMeetingURL(host) {
     return 'http' + (host.includes('localhost') ? '' : 's') + '://' + host + '/join/' + uuidV4();
 }
 
-// end of MiroTalk API v1
+// end of  API v1
 
 // not match any of page before, so 404 not found
 app.get('*', function (req, res) {
