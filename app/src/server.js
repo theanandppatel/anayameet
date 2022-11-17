@@ -1,43 +1,3 @@
-/*
-http://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=Server
-
-███████ ███████ ██████  ██    ██ ███████ ██████  
-██      ██      ██   ██ ██    ██ ██      ██   ██ 
-███████ █████   ██████  ██    ██ █████   ██████  
-     ██ ██      ██   ██  ██  ██  ██      ██   ██ 
-███████ ███████ ██   ██   ████   ███████ ██   ██                                           
-
-dependencies: {
-    body-parser             : https://www.npmjs.com/package/body-parser
-    compression             : https://www.npmjs.com/package/compression
-    colors                  : https://www.npmjs.com/package/colors
-    cors                    : https://www.npmjs.com/package/cors
-    crypto-js               : https://www.npmjs.com/package/crypto-js
-    dotenv                  : https://www.npmjs.com/package/dotenv
-    express                 : https://www.npmjs.com/package/express
-    ngrok                   : https://www.npmjs.com/package/ngrok
-    qs                      : https://www.npmjs.com/package/qs
-    @sentry/node            : https://www.npmjs.com/package/@sentry/node
-    @sentry/integrations    : https://www.npmjs.com/package/@sentry/integrations
-    socket.io               : https://www.npmjs.com/package/socket.io
-    swagger                 : https://www.npmjs.com/package/swagger-ui-express
-    uuid                    : https://www.npmjs.com/package/uuid
-    yamljs                  : https://www.npmjs.com/package/yamljs
-}
-*/
-
-/**
- * P2P - Server component
- *
- * @link    GitHub: https://github.com/miroslavpejic85/
- * @link    
- * @license For open source use: AGPLv3
- * @license For commercial or closed source, contact us at
- * @author  Miroslav Pejic - miroslav.pejic.85@gmail.com
- * @version 1.0.1
- *
- */
-
 'use strict'; // https://www.w3schools.com/js/js_strict.asp
 
 require('dotenv').config();
@@ -389,13 +349,7 @@ async function ngrokStart() {
 server.listen(port, null, () => {
     log.debug(
         `%c
-
-	███████╗██╗ ██████╗ ███╗   ██╗      ███████╗███████╗██████╗ ██╗   ██╗███████╗██████╗ 
-	██╔════╝██║██╔════╝ ████╗  ██║      ██╔════╝██╔════╝██╔══██╗██║   ██║██╔════╝██╔══██╗
-	███████╗██║██║  ███╗██╔██╗ ██║█████╗███████╗█████╗  ██████╔╝██║   ██║█████╗  ██████╔╝
-	╚════██║██║██║   ██║██║╚██╗██║╚════╝╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██╔══╝  ██╔══██╗
-	███████║██║╚██████╔╝██║ ╚████║      ███████║███████╗██║  ██║ ╚████╔╝ ███████╗██║  ██║
-	╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝      ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝ started...
+    started...
 
 	`,
         'font-family:monospace',
@@ -863,20 +817,7 @@ io.sockets.on('connect', async (socket) => {
         }
     });
 
-    /**
-     * Whiteboard actions for all user in the same room
-     */
-    // socket.on('wbCanvasToJson', async (config) => {
-    //     // log.debug('Whiteboard send canvas', config);
-    //     let room_id = config.room_id;
-    //     await sendToRoom(room_id, socket.id, 'wbCanvasToJson', config);
-    // });
-
-    // socket.on('whiteboardAction', async (config) => {
-    //     log.debug('Whiteboard', config);
-    //     let room_id = config.room_id;
-    //     await sendToRoom(room_id, socket.id, 'whiteboardAction', config);
-    // });
+    
 }); // end [sockets.on-connect]
 
 /**

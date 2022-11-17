@@ -1,22 +1,3 @@
-/*
- ██████ ██      ██ ███████ ███    ██ ████████ 
-██      ██      ██ ██      ████   ██    ██    
-██      ██      ██ █████   ██ ██  ██    ██    
-██      ██      ██ ██      ██  ██ ██    ██    
- ██████ ███████ ██ ███████ ██   ████    ██   
-*/
-
-/**
- * Anayameet P2P - Client component
- *
- * @link    GitHub: https://github.com/miroslavpejic85/anayameet
- * @link    Live demo: https://p2p.anayameet.com or https://anayameet.up.railway.app or https://anayameet.herokuapp.com
- * @license For open source use: AGPLv3
- * @license For commercial or closed source, contact us at info.anayameet@gmail.com
- * @author  Miroslav Pejic - miroslav.pejic.85@gmail.com
- * @version 1.0.1
- *
- */
 
  'use strict'; // https://www.w3schools.com/js/js_strict.asp
 
