@@ -3,13 +3,10 @@
     <head>
         <!-- https://github.com/mikecao/umami -->
 
-       
-
-        <!-- Vanta Js Animation  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.globe.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
-
+         <!-- Vanta Js Animation  -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.globe.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
 
         <!-- Title and Icon -->
 
@@ -26,7 +23,7 @@
         />
         <meta
             name="description"
-            content="Anayameet powered by WebRTC, Real-time Simple Secure Fast video calls, chat and screen sharing capabilities in the browser, from your mobile or desktop."
+            content="Anayameetpowered by WebRTC, Real-time Simple Secure Fast video calls, chat and screen sharing capabilities in the browser, from your mobile or desktop."
         />
         <meta
             name="keywords"
@@ -88,7 +85,7 @@ access to use this app.
             <button id="recordStreamBtn" class="fas fa-record-vinyl"></button>
             <button id="fullScreenBtn" class="fas fa-expand-alt"></button>
             <button id="chatRoomBtn" class="fas fa-comment"></button>
-            <!-- <button  id="captionBtn" class="fas fa-closed-captioning"></button> -->
+            <button id="captionBtn" class="fas fa-closed-captioning"></button>
             <button id="myHandBtn" class="fas fa-hand-paper"></button>
             <!-- <button id="whiteboardBtn" class="fas fa-chalkboard-teacher"></button> -->
             <button id="fileShareBtn" class="fas fa-folder-open"></button>
@@ -108,7 +105,7 @@ access to use this app.
                 <header id="msgerHeader" class="msger-header">
                     <div class="msger-header-title"><button id="msgerClose" class="fas fa-times"></button></div>
                     <div class="msger-header-options">
-                        <!-- <button id="msgerTheme" class="fas fa-ghost"></button> -->
+                        <button id="msgerTheme" class="fas fa-ghost"></button>
                         <button id="msgerSaveBtn" class="fas fa-save"></button>
                         <button id="msgerClean" class="fas fa-trash"></button>
                     </div>
@@ -139,8 +136,10 @@ access to use this app.
 
                 <div class="msger-input-buttons">
                     <button id="msgerEmojiBtn" class="fas fa-smile"></button>
-                    <!-- <button id="msgerVideoUrlBtn" class="fab fa-youtube"></button> -->
-                    <!-- <button id="msgerCPBtn" class="fas fa-users"></button> -->
+                    <button id="msgerMarkdownBtn" class="fab fa-markdown"></button>
+                    <button id="msgerShareFileBtn" class="fas fa-paperclip"></button>
+                    <button id="msgerVideoUrlBtn" class="fab fa-youtube"></button>
+                    <button id="msgerCPBtn" class="fas fa-users"></button>
                     <button id="msgerCleanTextBtn" class="fas fa-trash"></button>
                     <button id="msgerPasteBtn" class="fas fa-paste"></button>
                     <button id="msgerSendBtn" class="fas fa-paper-plane"></button>
@@ -178,6 +177,34 @@ access to use this app.
 
         <!-- End chat room -->
 
+        <!-- Start of caption section -->
+
+        <section id="captionDraggable" class="msger-draggable fadein">
+            <section id="caption" class="msger">
+                <header id="captionHeader" class="msger-header">
+                    <div class="msger-header-title">
+                        <button id="captionClose" class="fas fa-times"></button>
+                    </div>
+                    <div class="msger-header-options">
+                        <button id="captionTheme" class="fas fa-ghost"></button>
+                        <button id="captionSaveBtn" class="fas fa-save"></button>
+                        <button id="captionClean" class="fas fa-trash"></button>
+                    </div>
+                </header>
+
+                <main id="captionChat" class="msger-chat"></main>
+                <div class="msger-inputarea">
+                    <button id="speechRecognitionIcon" class="fas fa-microphone-alt"></button>
+                    <select id="recognitionLanguage"></select>
+                    <select id="recognitionDialect"></select>
+                    <button type="button" id="speechRecognitionStart"><i class="fas fa-play"></i>&nbsp;Start</button>
+                    <button type="button" id="speechRecognitionStop"><i class="fas fa-stop"></i>&nbsp;Stop</button>
+                </div>
+            </section>
+        </section>
+
+        <!-- End of caption section -->
+
         <!-- Start my settings -->
 
         <section id="mySettings" class="center fadein">
@@ -186,12 +213,12 @@ access to use this app.
             </header>
             <main>
                 <br />
-                <div class="tab" hidden>
-                    <button id="tabDevicesBtn" class="fas fa-cog tablinks"></button>
-                    <button id="tabBandwidthBtn" class="fas fa-wifi tablinks"></button>
+                <div class="tab">
+                    <!-- <button id="tabDevicesBtn" class="fas fa-cog tablinks"></button> -->
+                    <!-- <button id="tabBandwidthBtn" class="fas fa-wifi tablinks"></button> -->
                     <button id="tabRoomBtn" class="fas fa-home tablinks"></button>
-                    <button id="tabStylingBtn" class="fas fa-palette tablinks"></button>
-                    <button id="tabLanguagesBtn" class="fas fa-globe tablinks"></button>
+                    <!-- <button id="tabStylingBtn" class="fas fa-palette tablinks"></button> -->
+                    <!-- <button id="tabLanguagesBtn" class="fas fa-globe tablinks"></button> -->
                 </div>
 
                 <div id="tabRoom" class="tabcontent" style="display: block;">
@@ -201,27 +228,28 @@ access to use this app.
                         <input id="myPeerNameSet" type="text" placeholder="Change name..." />&nbsp;&nbsp;
                         <button id="myPeerNameSetBtn"><i class="fas fa-user-edit"></i>&nbsp;Change</button>
                     </div>
-                    <br />
                     <div id="tabRoomParticipants">
+                        <br />
                         <label>Participants</label><br />
                         <button id="muteEveryoneBtn"><i class="fas fa-microphone"></i>&nbsp;Mute everyone</button
                         >&nbsp;&nbsp;
                         <button id="hideEveryoneBtn"><i class="fas fa-video"></i>&nbsp;Hide everyone</button>
                     </div>
-                    <br />
                     <div id="tabRoomSecurity">
+                        <br /><br />
                         <label>Security</label><br />
                         <button id="lockRoomBtn"><i class="fas fa-lock-open"></i>&nbsp;Lock room</button>
                         <button id="unlockRoomBtn"><i class="fas fa-lock"></i>&nbsp;Unlock room</button>
                     </div>
-                    <br />
+                    <br /><br />
                     <label>Sounds</label><br />
                     <input id="switchSounds" style="color: #fff" class="toggle" type="checkbox" checked />
                 </div>
-                <div id="tabDevices" class="tabcontent" hidden style="display: none;">
+
+                <div id="tabDevices" class="tabcontent" style="display: none;">
                     <br />
                     <div>
-                        <label for="videoSource">1Camera</label><br />
+                        <label for="videoSource">Camera</label><br />
                         <select id="videoSource"></select>
                     </div>
                     <br />
@@ -261,43 +289,46 @@ access to use this app.
                         <option value="10">10 fps</option>
                         <option value="5">5 fps</option>
                     </select>
-                    <br /><br />
-                    <label for="screenFps">Screen fps</label>
-                    <br />
-                    <select id="screenFps">
-                        <option value="60">60 fps</option>
-                        <option value="30">30 fps</option>
-                        <option value="25">25 fps</option>
-                        <option value="20">20 fps</option>
-                        <option value="15">15 fps</option>
-                        <option value="10">10 fps</option>
-                        <option value="5">5 fps</option>
-                    </select>
+                    <div id="screenFpsDiv">
+                        <br />
+                        <label for="screenFps">Screen fps</label>
+                        <br />
+                        <select id="screenFps">
+                            <option value="60">60 fps</option>
+                            <option value="30">30 fps</option>
+                            <option value="25">25 fps</option>
+                            <option value="20">20 fps</option>
+                            <option value="15">15 fps</option>
+                            <option value="10">10 fps</option>
+                            <option value="5">5 fps</option>
+                        </select>
+                    </div>
                 </div>
 
+                
 
                 <div id="tabStyling" class="tabcontent">
                     <br />
-                    <label for="anayameetTheme">Theme color</label>
+                    <label for="mirotalkTheme">Theme color</label>
                     <br />
-                    <select id="anayameetTheme">
-                        <option value="dark">⚫️ Anayameet - dark</option>
-                        <option value="grey">⚪️ Anayameet - grey</option>
+                    <select id="mirotalkTheme">
+                        <option value="dark">⚫️ Dark</option>
+                        <option value="grey">⚪️ Grey</option>
                     </select>
                     <br /><br />
                     <label>Video fit:</label>
                     <br />
                     <select id="videoObjFitSelect">
-                        <option value="fill">fill</option>
-                        <option value="contain">contain</option>
-                        <option value="cover">cover</option>
-                        <option value="scale-down">scale-down</option>
-                        <option value="none">none</option>
+                        <option value="fill">Fill</option>
+                        <option value="contain">Contain</option>
+                        <option value="cover">Cover</option>
+                        <option value="scale-down">Scale-down</option>
+                        <option value="none">None</option>
                     </select>
                     <br /><br />
-                    <label for="anayameetBtnsBar">Buttons bar</label>
+                    <label for="mirotalkBtnsBar">Buttons bar</label>
                     <br />
-                    <select id="anayameetBtnsBar">
+                    <select id="mirotalkBtnsBar">
                         <option value="vertical">🚦 Vertical</option>
                         <option value="horizontal">🚥 Horizontal</option>
                     </select>
@@ -324,14 +355,14 @@ access to use this app.
 
         <!-- Start whiteboard -->
 
-        <section id="whiteboard" class="hidden">
+        <!-- <section id="whiteboard" class="hidden">
             <header id="whiteboardHeader" class="whiteboard-header">
                 <div id="whiteboardTitle" class="whiteboard-header-title">
                     <button id="whiteboardCloseBtn" class="fas fa-times"></button>
                 </div>
                 <div class="whiteboard-header-options">
-                    <!-- <input id="wbBackgroundColorEl" class="whiteboardColorPicker" type="color" value="#000000" />
-                    <input id="wbDrawingColorEl" class="whiteboardColorPicker" type="color" value="#FFFFFF" /> -->
+                    <input id="wbBackgroundColorEl" class="whiteboardColorPicker" type="color" value="#000000" />
+                    <input id="wbDrawingColorEl" class="whiteboardColorPicker" type="color" value="#FFFFFF" />
                     <button id="whiteboardPencilBtn" class="fas fa-pencil-alt"></button>
                     <button id="whiteboardObjectBtn" class="fas fa-mouse-pointer"></button>
                     <button id="whiteboardUndoBtn" class="fas fa-undo"></button>
@@ -350,14 +381,14 @@ access to use this app.
             <main>
                 <canvas id="wbCanvas"></canvas>
             </main>
-        </section>
+        </section> -->
 
         <!-- End whiteboard -->
 
         <!-- Start File Send -->
 
         <div id="sendFileDiv" class="center fadein">
-            <img id="imgShareSend" src="../images/share.png" alt="anayameet-share-send" class="center-img" /><br />
+            <img id="imgShareSend" src="../images/share.png" alt="mirotalk-share-send" class="center-img" /><br />
             <div id="sendFileInfo"></div>
             <div id="sendFilePercentage"></div>
             <progress id="sendProgress" max="0" value="0"></progress>
@@ -369,7 +400,7 @@ access to use this app.
         <!-- Start File Receive -->
 
         <div id="receiveFileDiv" class="center fadein">
-            <img id="imgShareReceive" src="../images/share.png" alt="anayameet-share-receive" class="center-img" /><br />
+            <img id="imgShareReceive" src="../images/share.png" alt="mirotalk-share-receive" class="center-img" /><br />
             <div id="receiveFileInfo"></div>
             <div id="receiveFilePercentage"></div>
             <progress id="receiveProgress" max="0" value="0"></progress>
@@ -431,6 +462,7 @@ access to use this app.
         <script defer src="https://unpkg.com/tippy.js@6"></script>
         <script defer src="/socket.io/socket.io.js"></script>
         <script defer src="../js/client.js"></script>
+        <script defer src="../js/detectSpeaking.js"></script>
         <script defer src="../js/speechRecognition.js"></script>
         <script defer src="../js/videoGrid.js"></script>
 
@@ -474,6 +506,7 @@ access to use this app.
               minWidth: 200.00
             })
             </script>
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
         <!-- End Google Translate -->

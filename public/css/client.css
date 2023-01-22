@@ -489,7 +489,7 @@ button:hover {
     border: none;
     border-radius: 3px;
     margin: 1px;
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 1rem;
 }
 
@@ -503,7 +503,7 @@ button:hover {
     height: 25px;
     resize: none;
     font-size: 14px !important;
-    background: rgb(7, 7, 7);
+    background: rgb(255, 255, 255);
     border-top-left-radius: 10px;
     -webkit-transition: height 1s;
     -moz-transition: height 1s;
@@ -740,7 +740,7 @@ emoji-picker {
 
 .tab {
     overflow: hidden;
-    background-color: rgba(0, 0, 0);
+    background-color: rgb(70 2 120);
 }
 
 /* Style the buttons inside the tab */
