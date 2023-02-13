@@ -1057,7 +1057,6 @@ function welcomeUser() {
             `
         <br/>
         <div id="qrRoomContainer">
-            <canvas id="qrRoom"></canvas>
         </div>
         <br/> <br/>
         <p style="color:white;">Invite others to join. Share this meeting link.</p>
@@ -3560,7 +3559,6 @@ async function shareRoomUrl() {
                 `
             <br/>
             <div id="qrRoomContainer">
-                <canvas id="qrRoom"></canvas>
             </div>
             <br/><br/>
             <p style="color:white;"> Invite others to join. Share this meeting link.</p>
@@ -3599,13 +3597,26 @@ async function shareRoomUrl() {
  * https://github.com/neocotic/qrious
  */
 function makeRoomQR() {
-    let qr = new QRious({
-        element: getId('qrRoom'),
-        value: window.location.href,
+    const qrCode = new QRCodeStyling({
+        width: 250,
+        height: 250,
+        type: "svg",
+        data: window.location.href,
+        image: "../images/logo.png",
+        dotsOptions: {
+            color: "#4B009B",
+            type: "rounded"
+        },
+        backgroundOptions: {
+            color: "#e9ebee",
+        },
+        imageOptions: {
+            crossOrigin: "anonymous",
+            margin: 5
+        }
     });
-    qr.set({
-        size: 256,
-    });
+
+    qrCode.append(document.getElementById("qrRoomContainer"));
 }
 
 /**

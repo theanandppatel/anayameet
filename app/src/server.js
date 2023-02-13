@@ -150,6 +150,7 @@ app.use((err, req, res, next) => {
 // main page
 app.get(['/'], (req, res) => {
     res.sendFile(views.landing);
+
 });
 
 
