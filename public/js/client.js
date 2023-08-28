@@ -367,10 +367,10 @@ function getHtmlElementsById() {
     screenShareBtn = getId('screenShareBtn');
     // recordStreamBtn = getId('recordStreamBtn');
     fullScreenBtn = getId('fullScreenBtn');
-    captionBtn = getId('captionBtn');
+    // captionBtn = getId('captionBtn');
     chatRoomBtn = getId('chatRoomBtn');
     // whiteboardBtn = getId('whiteboardBtn');
-    fileShareBtn = getId('fileShareBtn');
+    // fileShareBtn = getId('fileShareBtn');
     myHandBtn = getId('myHandBtn');
     mySettingsBtn = getId('mySettingsBtn');
     // aboutBtn = getId('aboutBtn');
@@ -501,10 +501,10 @@ function setButtonsToolTip() {
     // setTippy(recordStreamBtn, 'Start recording', 'right-start');
     setTippy(fullScreenBtn, 'View full screen', 'right-start');
     setTippy(chatRoomBtn, 'Open the chat', 'right-start');
-    setTippy(captionBtn, 'Open the caption', 'right-start');
+    // setTippy(captionBtn, 'Open the caption', 'right-start');
     setTippy(myHandBtn, 'Raise your hand', 'right-start');
     // setTippy(whiteboardBtn, 'Open the whiteboard', 'right-start');
-    setTippy(fileShareBtn, 'Share file', 'right-start');
+    // setTippy(fileShareBtn, 'Share file', 'right-start');
     setTippy(mySettingsBtn, 'Open settings', 'right-start');
     // setTippy(aboutBtn, 'About this project', 'right-start');
     setTippy(leaveRoomBtn, 'Leave this room', 'right-start');
@@ -908,13 +908,13 @@ function handleButtonsRule() {
     //elemDisplay(captionBtn, buttons.main.showCaptionRoomBtn); // auto-detected
     elemDisplay(myHandBtn, buttons.main.showMyHandBtn);
     // elemDisplay(whiteboardBtn, buttons.main.showWhiteboardBtn);
-    elemDisplay(fileShareBtn, buttons.main.showFileShareBtn);
+    // elemDisplay(fileShareBtn, buttons.main.showFileShareBtn);
     elemDisplay(mySettingsBtn, buttons.main.showMySettingsBtn);
     // elemDisplay(aboutBtn, buttons.main.showAboutBtn);
     // chat
     elemDisplay(msgerSaveBtn, buttons.chat.showSaveMessageBtn);
     elemDisplay(msgerMarkdownBtn, buttons.chat.showMarkDownBtn);
-    elemDisplay(msgerShareFileBtn, buttons.chat.showFileShareBtn);
+    // elemDisplay(msgerShareFileBtn, buttons.chat.showFileShareBtn);
     elemDisplay(msgerVideoUrlBtn, buttons.chat.showShareVideoAudioBtn);
     elemDisplay(msgerCPBtn, buttons.chat.showParticipantsBtn);
     // Settings
@@ -1925,7 +1925,7 @@ async function loadRemoteMediaStream(stream, peers, peer_id) {
     const remoteVideoStatusIcon = document.createElement('button');
     const remoteAudioStatusIcon = document.createElement('button');
     const remoteVideoAudioUrlBtn = document.createElement('button');
-    const remoteFileShareBtn = document.createElement('button');
+    // const remoteFileShareBtn = document.createElement('button');
     const remotePrivateMsgBtn = document.createElement('button');
     const remotePeerKickOut = document.createElement('button');
     const remoteVideoToImgBtn = document.createElement('button');
@@ -1959,8 +1959,8 @@ async function loadRemoteMediaStream(stream, peers, peer_id) {
     remotePrivateMsgBtn.className = 'fas fa-paper-plane';
 
     // remote share file
-    remoteFileShareBtn.setAttribute('id', peer_id + '_shareFile');
-    remoteFileShareBtn.className = 'fas fa-upload';
+    // remoteFileShareBtn.setAttribute('id', peer_id + '_shareFile');
+    // remoteFileShareBtn.className = 'fas fa-upload';
 
     // remote peer YouTube video
     remoteVideoAudioUrlBtn.setAttribute('id', peer_id + '_videoAudioUrl');
@@ -1989,7 +1989,7 @@ async function loadRemoteMediaStream(stream, peers, peer_id) {
     setTippy(remoteAudioStatusIcon, 'Participant audio is on', 'bottom');
     setTippy(remoteVideoAudioUrlBtn, 'Send Video or Audio', 'bottom');
     setTippy(remotePrivateMsgBtn, 'Send private message', 'bottom');
-    setTippy(remoteFileShareBtn, 'Send file', 'bottom');
+    // setTippy(remoteFileShareBtn, 'Send file', 'bottom');
     setTippy(remoteVideoToImgBtn, 'Take a snapshot', 'bottom');
     setTippy(remotePeerKickOut, 'Kick out', 'bottom');
     setTippy(remoteVideoFullScreenBtn, 'Full screen mode', 'bottom');
@@ -2029,9 +2029,9 @@ async function loadRemoteMediaStream(stream, peers, peer_id) {
     if (buttons.remote.showPrivateMessageBtn) {
         remoteVideoNavBar.appendChild(remotePrivateMsgBtn);
     }
-    if (buttons.remote.showFileShareBtn) {
-        remoteVideoNavBar.appendChild(remoteFileShareBtn);
-    }
+    // if (buttons.remote.showFileShareBtn) {
+    //     remoteVideoNavBar.appendChild(remoteFileShareBtn);
+    // }
     if (buttons.remote.showShareVideoAudioBtn) {
         remoteVideoNavBar.appendChild(remoteVideoAudioUrlBtn);
     }
@@ -2104,10 +2104,10 @@ async function loadRemoteMediaStream(stream, peers, peer_id) {
         // handle remote private messages
         handlePeerPrivateMsg(peer_id, peer_name);
     }
-    if (buttons.remote.showFileShareBtn) {
-        // handle remote send file
-        handlePeerSendFile(peer_id);
-    }
+    // if (buttons.remote.showFileShareBtn) {
+    //     // handle remote send file
+    //     handlePeerSendFile(peer_id);
+    // }
     if (buttons.remote.showShareVideoAudioBtn) {
         // handle remote video - audio URL
         handlePeerVideoAudioUrl(peer_id);
@@ -2603,7 +2603,7 @@ function manageLeftButtons() {
     setChatEmojiBtn();
     setMyHandBtn();
     // setMyWhiteboardBtn();
-    setMyFileShareBtn();
+    // setMyFileShareBtn();
     setMySettingsBtn();
     // setAboutBtn();
     setLeaveRoomBtn();
@@ -2836,13 +2836,13 @@ function setChatRoomBtn() {
 function setCaptionRoomBtn() {
     if (speechRecognition && buttons.main.showCaptionRoomBtn) {
         // open hide caption
-        captionBtn.addEventListener('click', (e) => {
-            if (!isCaptionBoxVisible) {
-                showCaptionDraggable();
-            } else {
-                hideCaptionBox();
-            }
-        });
+        // captionBtn.addEventListener('click', (e) => {
+        //     if (!isCaptionBoxVisible) {
+        //         showCaptionDraggable();
+        //     } else {
+        //         hideCaptionBox();
+        //     }
+        // });
 
         // ghost theme + undo
         captionTheme.addEventListener('click', (e) => {
@@ -2889,7 +2889,7 @@ function setCaptionRoomBtn() {
             startSpeech(false);
         });
     } else {
-        captionBtn.style.display = 'none';
+        // captionBtn.style.display = 'none';
         // https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#browser_compatibility
     }
 }
@@ -2992,24 +2992,24 @@ function setMyWhiteboardBtn() {
 /**
  * File Transfer button event click
  */
-function setMyFileShareBtn() {
-    // make send-receive file div draggable
-    if (!isMobileDevice) {
-        dragElement(getId('sendFileDiv'), getId('imgShareSend'));
-        dragElement(getId('receiveFileDiv'), getId('imgShareReceive'));
-    }
+// function setMyFileShareBtn() {
+//     // make send-receive file div draggable
+//     if (!isMobileDevice) {
+//         dragElement(getId('sendFileDiv'), getId('imgShareSend'));
+//         dragElement(getId('receiveFileDiv'), getId('imgShareReceive'));
+//     }
 
-    fileShareBtn.addEventListener('click', (e) => {
-        //window.open("https://fromsmash.com"); // for Big Data
-        selectFileToShare(myPeerId, true);
-    });
-    sendAbortBtn.addEventListener('click', (e) => {
-        abortFileTransfer();
-    });
-    receiveHideBtn.addEventListener('click', (e) => {
-        hideFileTransfer();
-    });
-}
+//     fileShareBtn.addEventListener('click', (e) => {
+//         //window.open("https://fromsmash.com"); // for Big Data
+//         selectFileToShare(myPeerId, true);
+//     });
+//     sendAbortBtn.addEventListener('click', (e) => {
+//         abortFileTransfer();
+//     });
+//     receiveHideBtn.addEventListener('click', (e) => {
+//         hideFileTransfer();
+//     });
+// }
 
 /**
  * My settings button click event
@@ -4212,12 +4212,12 @@ function showCaptionDraggable() {
         buttonsBar.style.display = 'none';
         isButtonsVisible = false;
     }
-    captionBtn.className = 'far fa-closed-captioning';
+    // captionBtn.className = 'far fa-closed-captioning';
     captionDraggable.style.top = '50%';
     captionDraggable.style.left = isMobileDevice ? '50' : '75%';
     captionDraggable.style.display = 'flex';
     isCaptionBoxVisible = true;
-    setTippy(captionBtn, 'Close the caption', 'right-start');
+    // setTippy(captionBtn, 'Close the caption', 'right-start');
 }
 
 /**
@@ -4306,9 +4306,9 @@ function hideChatRoomAndEmojiPicker() {
  */
 function hideCaptionBox() {
     captionDraggable.style.display = 'none';
-    captionBtn.className = 'fas fa-closed-captioning';
+    // captionBtn.className = 'fas fa-closed-captioning';
     isCaptionBoxVisible = false;
-    setTippy(captionBtn, 'Open the caption', 'right-start');
+    // setTippy(captionBtn, 'Open the caption', 'right-start');
 }
 
 /**
