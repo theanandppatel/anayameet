@@ -360,12 +360,12 @@ function getHtmlElementsById() {
     myVideoAvatarImage = getId('myVideoAvatarImage');
     // buttons Bar
     buttonsBar = getId('buttonsBar');
-    shareRoomBtn = getId('shareRoomBtn');
+    // shareRoomBtn = getId('shareRoomBtn');
     audioBtn = getId('audioBtn');
     videoBtn = getId('videoBtn');
     swapCameraBtn = getId('swapCameraBtn');
     screenShareBtn = getId('screenShareBtn');
-    recordStreamBtn = getId('recordStreamBtn');
+    // recordStreamBtn = getId('recordStreamBtn');
     fullScreenBtn = getId('fullScreenBtn');
     captionBtn = getId('captionBtn');
     chatRoomBtn = getId('chatRoomBtn');
@@ -494,11 +494,11 @@ function setButtonsToolTip() {
     // not need for mobile
     if (isMobileDevice) return;
     // main buttons
-    setTippy(shareRoomBtn, 'Invite others to join', 'right-start');
+    // setTippy(shareRoomBtn, 'Invite others to join', 'right-start');
     setTippy(audioBtn, 'Stop the audio', 'right-start');
     setTippy(videoBtn, 'Stop the video', 'right-start');
     setTippy(screenShareBtn, 'Start screen sharing', 'right-start');
-    setTippy(recordStreamBtn, 'Start recording', 'right-start');
+    // setTippy(recordStreamBtn, 'Start recording', 'right-start');
     setTippy(fullScreenBtn, 'View full screen', 'right-start');
     setTippy(chatRoomBtn, 'Open the chat', 'right-start');
     setTippy(captionBtn, 'Open the caption', 'right-start');
@@ -899,11 +899,11 @@ function handleRules(isPresenter) {
  */
 function handleButtonsRule() {
     // Main
-    elemDisplay(shareRoomBtn, buttons.main.showShareRoomBtn);
+    // elemDisplay(shareRoomBtn, buttons.main.showShareRoomBtn);
     elemDisplay(audioBtn, buttons.main.showAudioBtn);
     elemDisplay(videoBtn, buttons.main.showVideoBtn);
     //elemDisplay(screenShareBtn, buttons.main.showScreenBtn); // auto-detected
-    elemDisplay(recordStreamBtn, buttons.main.showRecordStreamBtn);
+    // elemDisplay(recordStreamBtn, buttons.main.showRecordStreamBtn);
     elemDisplay(chatRoomBtn, buttons.main.showChatRoomBtn);
     //elemDisplay(captionBtn, buttons.main.showCaptionRoomBtn); // auto-detected
     elemDisplay(myHandBtn, buttons.main.showMyHandBtn);
@@ -2591,12 +2591,12 @@ function refreshMyVideoAudioStatus(localMediaStream) {
  * Handle WebRTC left buttons
  */
 function manageLeftButtons() {
-    setShareRoomBtn();
+    // setShareRoomBtn();
     setAudioBtn();
     setVideoBtn();
     setSwapCameraBtn();
     setScreenShareBtn();
-    setRecordStreamBtn();
+    // setRecordStreamBtn();
     setFullScreenBtn();
     setChatRoomBtn();
     setCaptionRoomBtn();
@@ -2612,11 +2612,11 @@ function manageLeftButtons() {
 /**
  * Copy - share room url button click event
  */
-function setShareRoomBtn() {
-    shareRoomBtn.addEventListener('click', async (e) => {
-        shareRoomUrl();
-    });
-}
+// function setShareRoomBtn() {
+//     shareRoomBtn.addEventListener('click', async (e) => {
+//         shareRoomUrl();
+//     });
+// }
 
 /**
  * Audio mute - unmute button click event
@@ -2674,15 +2674,15 @@ function setScreenShareBtn() {
 /**
  * Start - Stop Stream recording
  */
-function setRecordStreamBtn() {
-    recordStreamBtn.addEventListener('click', (e) => {
-        if (isStreamRecording) {
-            stopStreamRecording();
-        } else {
-            startStreamRecording();
-        }
-    });
-}
+// function setRecordStreamBtn() {
+//     recordStreamBtn.addEventListener('click', (e) => {
+//         if (isStreamRecording) {
+//             stopStreamRecording();
+//         } else {
+//             startStreamRecording();
+//         }
+//     });
+// }
 
 /**
  * Full screen button click event
@@ -4083,9 +4083,9 @@ function handleMediaRecorderStart(event) {
     }
     console.log('MediaRecorder started: ', event);
     isStreamRecording = true;
-    recordStreamBtn.style.setProperty('color', '#ff4500');
+    // recordStreamBtn.style.setProperty('color', '#ff4500');
     startRecordingTime();
-    setTippy(recordStreamBtn, 'Stop recording', 'right-start');
+    // setTippy(recordStreamBtn, 'Stop recording', 'right-start');
     if (isMobileDevice) {
         swapCameraBtn.style.display = 'none';
     }
@@ -4118,9 +4118,9 @@ function handleMediaRecorderStop(event) {
         emitPeersAction('recStop');
         emitPeerStatus('rec', isRecScreenStream);
     }
-    recordStreamBtn.style.setProperty('color', '#000');
+    // recordStreamBtn.style.setProperty('color', '#000');
     downloadRecordedStream();
-    setTippy(recordStreamBtn, 'Start recording', 'right-start');
+    // setTippy(recordStreamBtn, 'Start recording', 'right-start');
     if (isMobileDevice) {
         swapCameraBtn.style.display = 'block';
     }
